@@ -18,12 +18,13 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+    background: rgb(var(--background-end-rgb));
 }
 
 @layer utilities {
@@ -36,10 +37,10 @@ body {
   }
   .bg-custom-red {
     background-color: #F23545;
-    color: #CCCCCC;
+    color: white;
   }
   .bg-custom-yellow {
     background-color: #FFC72C;
-    color: gray;
+    color: #4F5858;
   }
 }
