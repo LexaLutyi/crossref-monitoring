@@ -1,18 +1,18 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
+import { List } from 'postcss/lib/list';
+
+interface PieChartData {
+  id: string;
+  value: number;
+}
 
 interface PieChartProps {
   className?: string;
-  passed: number;
-  failed: number;
+  data: PieChartData[];
 }
 
-const PieChart: React.FC<PieChartProps> = ({ className, passed, failed }) => {
-  const data = [
-    { id: "Failed", value: failed },
-    { id: "Passed", value: passed },
-  ];
-
+const CheckPieChart: React.FC<PieChartProps> = ({ className, data }) => {
   return (
     <div className={className}>
       <ResponsivePie
@@ -48,4 +48,4 @@ const PieChart: React.FC<PieChartProps> = ({ className, passed, failed }) => {
   );
 }
 
-export default PieChart;
+export default CheckPieChart;

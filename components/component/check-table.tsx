@@ -4,11 +4,26 @@
  */
 "use client"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
-import PieChart from "./pie-chart"
+import CheckPieChart from "./check-pie-chart"
 
-import data from '../../data/checks.json';
+import agg_data from '../../data/checks.json';
 
-export function CheckTable() {
+interface PieChartData {
+  id: string;
+  value: number;
+}
+
+interface TableRowData {
+  name: String;
+  passedRatio: String;
+  pieData: PieChartData[];
+}
+
+interface CheckTableProps {
+  data?: TableRowData[]; // Making data optional as it has a default value
+}
+
+export function CheckTable({ data = agg_data }: CheckTableProps) {
   return (
     <Table className="w-full">
       <TableHeader>
@@ -22,9 +37,9 @@ export function CheckTable() {
         {data.map((test, index) => (
           <TableRow key={index}>
             <TableCell className="font-medium">{test.name}</TableCell>
-            <TableCell>{test.passedRatio}</TableCell>
-            <TableCell>
-              <PieChart className="w-[100px] aspect-square" passed={test.passed} failed={test.failed} />
+            <TableCell className="font-medium">{test.passedRatio}</TableCell>
+            <TableCell className="font-medium">
+              <CheckPieChart className="w-[100px] aspect-square" data = {test.pieData} />
             </TableCell>
           </TableRow>
         ))}
