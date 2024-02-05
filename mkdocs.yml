@@ -1,6 +1,10 @@
 site_name: Crossref Monitoring
 theme:
   name: material
+  # icon:
+  #   logo: material/database-eye
+  logo: assets/logo2.png
+  favicon: assets/logo2.png
   features:
     - navigation.tabs
     - navigation.sections
@@ -17,13 +21,13 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-      primary: teal
+      primary: deep purple
       accent: purple
     - scheme: slate
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-      primary: teal
+      primary: deep purple
       accent: lime
 
 extra:
@@ -52,9 +56,13 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
+
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - search
